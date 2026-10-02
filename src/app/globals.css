@@ -1,26 +1,256 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* ---- Brand: gradient scale built from #215AC8 ---- */
+  --color-brand-50: #eef3fc;
+  --color-brand-100: #d8e4f8;
+  --color-brand-200: #b3c9f1;
+  --color-brand-300: #85a7e7;
+  --color-brand-400: #5182db;
+  --color-brand-500: #215ac8;
+  --color-brand-600: #1b49a4;
+  --color-brand-700: #163b84;
+  --color-brand-800: #122f69;
+  --color-brand-900: #0e2450;
+  --color-brand-950: #08152f;
+
+  /* ---- Ink / surface ---- */
+  /* Every ink tone clears 4.5:1 on white, --color-surface-alt and
+     --color-surface-tint, so the small uppercase labels stay legible. */
+  --color-ink: #0b1020;
+  --color-ink-soft: #3d4657;
+  --color-ink-muted: #5c6579;
+  --color-ink-faint: #667085;
+  --color-line: #e6e9f0;
+  --color-line-soft: #f0f2f7;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f7f8fb;
+  --color-surface-tint: #f4f7fd;
+
+  --font-sans: var(--font-work-sans), ui-sans-serif, system-ui, sans-serif;
+
+  /* Fluid display sizes — minimalist, big type, tight tracking */
+  /* Sized so "Business With AI." holds one line in the hero's text column. */
+  --text-display: clamp(2.25rem, 5.2vw, 4.5rem);
+  --text-display--line-height: 0.94;
+  --text-display--letter-spacing: -0.04em;
+
+  --text-h1: clamp(2.25rem, 6vw, 4.5rem);
+  --text-h1--line-height: 1;
+  --text-h1--letter-spacing: -0.035em;
+
+  --text-h2: clamp(1.875rem, 4.2vw, 3.25rem);
+  --text-h2--line-height: 1.06;
+  --text-h2--letter-spacing: -0.03em;
+
+  --text-h3: clamp(1.375rem, 2.4vw, 2rem);
+  --text-h3--line-height: 1.16;
+  --text-h3--letter-spacing: -0.02em;
+
+  /* Emphasised single-line list items ("Someone receives it."). */
+  --text-statement: clamp(1.125rem, 1.7vw, 1.5rem);
+  --text-statement--line-height: 1.3;
+  --text-statement--letter-spacing: -0.015em;
+
+  --text-lead: clamp(1.0625rem, 1.5vw, 1.3125rem);
+  --text-lead--line-height: 1.55;
+
+  --text-body: 1rem;
+  --text-body--line-height: 1.7;
+
+  --text-label: 0.6875rem;
+  --text-label--line-height: 1.2;
+  --text-label--letter-spacing: 0.18em;
+
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  body {
+    background: var(--color-surface);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Visible, branded focus ring — never removed. */
+  :focus-visible {
+    outline: 2px solid var(--color-brand-500);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background: var(--color-brand-500);
+    color: #fff;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  /* Brand gradient text — the single recurring accent across the site.
+     Its lightest stop is 3.8:1 on white, which clears the 3:1 large-text bar.
+     Keep it on display headings only; never apply it to body copy. */
+  .text-gradient {
+    background: linear-gradient(
+      104deg,
+      var(--color-brand-600) 0%,
+      var(--color-brand-500) 42%,
+      var(--color-brand-400) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Stops at brand-500 rather than brand-400: this gradient sits behind white
+     button labels, and brand-400 would drop the label to 3.8:1. */
+  .bg-brand-gradient {
+    background: linear-gradient(
+      104deg,
+      var(--color-brand-700) 0%,
+      var(--color-brand-600) 45%,
+      var(--color-brand-500) 100%
+    );
+  }
+
+  /* Soft ambient wash used behind heroes. Decorative only. */
+  .bg-brand-aura {
+    background:
+      radial-gradient(
+        60% 50% at 15% 0%,
+        color-mix(in oklab, var(--color-brand-400) 22%, transparent) 0%,
+        transparent 70%
+      ),
+      radial-gradient(
+        50% 45% at 88% 12%,
+        color-mix(in oklab, var(--color-brand-300) 26%, transparent) 0%,
+        transparent 72%
+      );
+  }
+
+  /* The one micro-label style. Every eyebrow, column heading and
+     Before/After tag uses this so they can't drift apart. */
+  .label {
+    font-size: var(--text-label);
+    line-height: var(--text-label--line-height);
+    letter-spacing: var(--text-label--letter-spacing);
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .balance {
+    text-wrap: balance;
+  }
+
+  .pretty {
+    text-wrap: pretty;
+  }
+}
+
+/* Hero flow diagram: packets travelling along their connector paths. Each dot
+   sets its own --flow-path / --flow-delay. Compositor-only (offset + opacity). */
+@keyframes flow-travel {
+  0% {
+    offset-distance: 0%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    offset-distance: 100%;
+    opacity: 0;
+  }
+}
+
+@keyframes flow-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.06);
+    opacity: 0.85;
+  }
+}
+
+.flow-dot {
+  offset-path: var(--flow-path);
+  offset-rotate: 0deg;
+  animation: flow-travel 2.8s var(--flow-delay, 0s) linear infinite;
+  opacity: 0;
+}
+
+.flow-halo {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: flow-pulse 2.8s ease-in-out infinite;
+}
+
+/* Paused while the diagram is scrolled out of view. */
+.flow-paused .flow-dot,
+.flow-paused .flow-halo {
+  animation-play-state: paused;
+}
+
+/* Banner CTA: slow drifting highlight behind the gradient. */
+@keyframes banner-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.55;
+  }
+  50% {
+    transform: translate3d(-4%, 3%, 0) scale(1.12);
+    opacity: 0.8;
+  }
+}
+
+.banner-glow {
+  animation: banner-drift 14s ease-in-out infinite;
+}
+
+/* Agent run: expanding pulse on the step currently executing. Step order is
+   driven from React state; only this pulse is CSS. */
+@keyframes agent-ring {
+  0% {
+    transform: scale(0.7);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.agent-ring {
+  animation: agent-ring 1.4s ease-out infinite;
+}
+
+/* Respect the OS-level motion preference: render final states, no travel. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

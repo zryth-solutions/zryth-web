@@ -1,0 +1,38 @@
+# Zryth
+
+> Zryth is the team businesses outsource their AI development to. We design, build and deploy custom AI and software, or deploy AI products we have already built.
+
+Zryth works in two ways: (1) AI Transformation — we go into a business, find where AI can create real ROI, implement it, train the team, and measure the impact; (2) Products & Services — ready-to-deploy AI products, or custom AI and software built around what a business needs (custom AI automation, custom software development, document AI, voice AI).
+
+Zryth is based in Noida, India, and works with clients in milling/manufacturing, finance & audit, and publishing/education.
+
+## Company
+
+- [About Zryth](https://zryth.com/about): Who Zryth is and how it works with businesses.
+- [AI Transformation / Success Stories](https://zryth.com/transformation): How Zryth transforms businesses with AI, and real client transformation stories (Oswaal Books, Agra Rollers, ARC & Associates).
+- [Get started](https://zryth.com/get-started): Book a free discovery audit or a free AI seminar.
+
+## Case studies
+
+- [Running a Mill on Phone Calls and Memory](https://zryth.com/case-studies/mill-software): How Mill Software connected procurement, reconciliation and sales into one system for a flour mill.
+- [Audits That Used To Take Days, Now Take Hours](https://zryth.com/case-studies/audit-firm-transformation): How FinanceAuditor.ai cut audit time by 60% for a CA firm.
+- [One Publisher, Every Stage Rebuilt With AI](https://zryth.com/case-studies/publisher-ai-transformation): How Oswaal Books used AI across content, warehousing and a direct-to-student product.
+
+## Products
+
+- [FinanceAuditor.ai](https://zryth.com/products/finance-auditor): AI-powered audit platform — Tally, GST and TDS reconciliation, auto-generated financials and tax audit reports.
+- [Mill Software](https://zryth.com/products/mill-software): Procurement, reconciliation, sales, dispatch and billing for the milling industry, in one system.
+- [Oswaal AI](https://zryth.com/products/ai-education): AI learning hub for students — chapter-wise content, AI chat, adaptive tests, mind maps and podcasts.
+- [Learning](https://zryth.com/products/learning): Platform to run corporate or institutional training and learning from one place.
+
+## Research
+
+- [The Bills Nobody Was Checking](https://zryth.com/research-work/mill-software-bill-verification): Applied research on automated bill verification for the milling industry.
+- [The ₹12 Question](https://zryth.com/research-work/mock-test-question-extraction): Applied research on the cost and accuracy of AI + OCR question extraction from mock-test PDFs.
+
+## Contact
+
+- Phone: +91-9870661438
+- Email: kushagra@zryth.com, manas@zryth.com
+- LinkedIn: https://www.linkedin.com/company/zryth/posts/?feedView=all
+- Instagram: https://www.instagram.com/zryth_solutions

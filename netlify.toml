@@ -1,0 +1,7 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+# Netlify's Next.js runtime handles routing and image optimisation.
+[[plugins]]
+  package = "@netlify/plugin-nextjs"

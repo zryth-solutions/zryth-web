@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Form definitions</title>
+  </head>
+  <body>
+    <!--
+      Netlify detects forms by parsing deployed HTML at build time. The real
+      form is client-rendered React, which the parser can't see, so this static
+      definition registers the form and its fields. WorkflowForm POSTs here.
+      Keep the field names in sync with src/components/site/WorkflowForm.tsx.
+    -->
+    <form name="workflow-intake" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="workflow-intake" />
+      <input type="text" name="bot-field" />
+      <input type="text" name="bookingType" />
+      <input type="text" name="company" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <textarea name="workflow"></textarea>
+    </form>
+  </body>
+</html>
