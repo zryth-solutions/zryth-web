@@ -7,7 +7,7 @@ import { ArticleIndexCard } from "@/components/site/ArticleTemplate";
 import { PRODUCTS } from "@/content/products";
 
 export const metadata: Metadata = {
-  title: "Products",
+  title: "Our Work",
   description:
     "AI-powered software for finance, operations, education, sales and decision-making.",
   keywords: [
@@ -25,8 +25,8 @@ export default function ProductsPage() {
   return (
     <>
       <PageHero
-        eyebrow="Products"
-        lines={["Products built around", "real business problems."]}
+        eyebrow="Our Work"
+        lines={["Our work, built around", "real business problems."]}
         gradientFrom={1}
       >
         <p className="text-lead text-ink-soft pretty">
@@ -37,7 +37,7 @@ export default function ProductsPage() {
 
       <Section tone="alt">
         <Container>
-          <ul className="grid gap-6 lg:grid-cols-2">
+          <ul className="grid gap-6 lg:grid-cols-3">
             {PRODUCTS.map((product, i) => (
               <Reveal as="li" key={product.slug} delay={i * 0.05}>
                 <ArticleIndexCard

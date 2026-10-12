@@ -17,7 +17,7 @@ export async function generateMetadata({
   if (!product) return {};
 
   return {
-    title: `${product.title} | Products`,
+    title: `${product.title} | Our Work`,
     description: product.subtitle,
     keywords: [
       product.title,
@@ -49,7 +49,7 @@ export default async function ProductPage({
   return (
     <ArticleTemplate
       article={product}
-      closingLabel="Zryth Products"
+      closingLabel="Zryth Our Work"
       next={{ title: next.title, href: `/products/${next.slug}` }}
       relatedLink={
         product.caseStudyHref
@@ -65,7 +65,7 @@ export default async function ProductPage({
           : null
       }
       backHref="/products"
-      backLabel="← All products"
+      backLabel="← All our work"
     />
   );
 }

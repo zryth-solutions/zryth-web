@@ -1,7 +1,7 @@
 /**
  * Case Studies — uses the shared editorial article template (see
  * src/components/site/ArticleTemplate.tsx), the same one Products and
- * Research Work use. `body` is an ordered list of blocks (heading /
+ * the write-ups and Products use. `body` is an ordered list of blocks (heading /
  * subheading / paragraph / image) rendered top to bottom, exactly like a
  * Medium article: add, remove or reorder blocks freely, the page just
  * renders whatever's here.
@@ -17,8 +17,6 @@ export type CaseStudy = ArticleData & {
   /** Optional link to the related product, shown as a plain text link. */
   productHref?: string;
   productLabel?: string;
-  /** Used for the search/filter chips on the case studies index. */
-  tags: string[];
 };
 
 export const CASE_STUDIES: CaseStudy[] = [
@@ -28,7 +26,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     title: "Running a Mill on Phone Calls and Memory",
     subtitle:
       "How Mill Software connected procurement, reconciliation and sales into one accurate system, instead of three disconnected manual processes.",
-    author: "Zryth Research",
+    author: "Zryth",
     publishedDate: "September 2026",
     readingTime: "4 min read",
     heroImageLabel: "[Mill Software operations dashboard]",
@@ -36,7 +34,6 @@ export const CASE_STUDIES: CaseStudy[] = [
     heroImageRatio: "aspect-[1366/768]",
     productHref: "/products/mill-software",
     productLabel: "See the product: Mill Software",
-    tags: ["Document AI", "Automation", "Manufacturing"],
     body: [
       {
         type: "heading",
@@ -93,7 +90,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     title: "Audits That Used To Take Days, Now Take Hours",
     subtitle:
       "How an AI-powered audit platform helped a CA firm run statutory audits faster and at a fraction of the manual cost.",
-    author: "Zryth Research",
+    author: "Zryth",
     publishedDate: "September 2026",
     readingTime: "4 min read",
     heroImageLabel: "[Audit reconciliation dashboard]",
@@ -101,7 +98,6 @@ export const CASE_STUDIES: CaseStudy[] = [
     heroImageRatio: "aspect-[1366/768]",
     productHref: "/products/finance-auditor",
     productLabel: "See the product: FinanceAuditor.ai",
-    tags: ["Document AI", "Automation", "Finance"],
     body: [
       { type: "heading", text: "An audit spread across four disconnected systems" },
       {
@@ -154,7 +150,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     title: "One Publisher, Every Stage Rebuilt With AI",
     subtitle:
       "How a publisher used AI to generate and check content, run its warehouse, and reach students directly with its own AI study product.",
-    author: "Zryth Research",
+    author: "Zryth",
     publishedDate: "September 2026",
     readingTime: "5 min read",
     heroImageLabel: "[Publisher operations, before and after AI]",
@@ -162,7 +158,6 @@ export const CASE_STUDIES: CaseStudy[] = [
     heroImageRatio: "aspect-[1366/768]",
     productHref: "/products/ai-education",
     productLabel: "See the product: Oswaal AI",
-    tags: ["Chat AI", "Document AI", "Education"],
     body: [
       { type: "heading", text: "A publisher with AI needs at every stage, not just one" },
       {

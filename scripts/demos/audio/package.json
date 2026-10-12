@@ -1,0 +1,9 @@
+{
+  "name": "zryth-demo-audio",
+  "private": true,
+  "type": "module",
+  "description": "Build-time scripted-audio generator for the case-study demos. Not part of the website bundle.",
+  "dependencies": {
+    "kokoro-js": "^1.2.1"
+  }
+}

@@ -1,7 +1,7 @@
 /**
  * Products — uses the shared editorial article template (see
  * src/components/site/ArticleTemplate.tsx), the same one Case Studies and
- * Research Work use. `body` is an ordered list of blocks (heading /
+ * the case studies use. `body` is an ordered list of blocks (heading /
  * subheading / paragraph / image) rendered top to bottom, exactly like a
  * Medium article: add, remove or reorder blocks freely, the page just
  * renders whatever's here.

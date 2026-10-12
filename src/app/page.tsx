@@ -13,7 +13,10 @@ import {
   CLIENT_LOGOS,
 } from "@/components/site/LogoWall";
 import { Button } from "@/components/ui/Button";
-import { STUDIO_OFFER, ROI_STEPS, INDUSTRIES, RESULTS } from "@/content/home";
+import { STUDIO_OFFER, ROI_STEPS, INDUSTRIES } from "@/content/home";
+import { SERVICES } from "@/content/services";
+import { ArticleIndexCard } from "@/components/site/ArticleTemplate";
+import { WRITE_UPS } from "@/content/case-write-ups";
 
 export const metadata: Metadata = {
   title: "Zryth: Outsource Your AI Development To Us",
@@ -78,16 +81,25 @@ export default function Home() {
               as="ol"
               className="mt-2 border-t border-line-soft lg:col-span-7"
             >
-              {STUDIO_OFFER.items.map((item, i) => (
-                <RevealItem
-                  as="li"
-                  key={item}
-                  className="flex items-center gap-5 border-b border-line-soft py-5"
-                >
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand-50 text-brand-600">
-                    <OfferIcon index={i} />
-                  </span>
-                  <span className="text-lg font-medium text-ink">{item}</span>
+              {SERVICES.map((service, i) => (
+                <RevealItem as="li" key={service.slug} className="border-b border-line-soft">
+                  <Link
+                    href={`/services/${service.slug}`}
+                    className="group flex items-center gap-5 py-5 transition-colors duration-200"
+                  >
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand-50 text-brand-600 transition-colors duration-200 group-hover:bg-brand-100">
+                      <OfferIcon index={i} />
+                    </span>
+                    <span className="flex-1 text-lg font-medium text-ink transition-colors duration-200 group-hover:text-brand-700">
+                      {service.name}
+                    </span>
+                    <span
+                      aria-hidden="true"
+                      className="text-brand-600 opacity-0 transition-all duration-200 group-hover:translate-x-1 group-hover:opacity-100 group-focus-visible:opacity-100 max-lg:opacity-60"
+                    >
+                      <ArrowIcon />
+                    </span>
+                  </Link>
                 </RevealItem>
               ))}
             </RevealGroup>
@@ -196,51 +208,27 @@ export default function Home() {
             </h2>
           </Reveal>
 
-          <ul className="mt-12 grid gap-6 lg:grid-cols-3">
-            {RESULTS.map((result, i) => (
-              <Reveal as="li" key={result.sector} delay={i * 0.06}>
-                <Link
-                  href={result.href}
-                  className="flex h-full flex-col overflow-hidden rounded-xl border border-line bg-surface transition-colors duration-200 hover:border-brand-300"
-                >
-                  {result.image ? (
-                    <div className="relative aspect-[16/10] w-full bg-surface-alt">
-                      <Image
-                        src={result.image}
-                        alt={result.imageAlt}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 1024px) 100vw, 380px"
-                      />
-                    </div>
-                  ) : (
-                    <div className="flex aspect-[16/10] w-full items-center justify-center border-b border-line bg-brand-50/60">
-                      <span className="label text-brand-400">Image</span>
-                    </div>
-                  )}
-
-                  <div className="flex flex-1 flex-col p-7">
-                    <p className="label text-brand-600">{result.sector}</p>
-
-                    <h3 className="mt-4 flex-1 text-xl font-semibold tracking-tight balance">
-                      {result.headline}
-                    </h3>
-
-                    <ul className="mt-5 flex flex-wrap gap-2">
-                      {result.metrics.map((metric) => (
-                        <li
-                          key={metric}
-                          className="rounded-md bg-brand-50 px-2.5 py-1 text-sm font-medium text-brand-700"
-                        >
-                          {metric}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </Link>
+          <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {WRITE_UPS.map((entry, i) => (
+              <Reveal as="li" key={entry.slug} delay={i * 0.06}>
+                <ArticleIndexCard
+                  href={`/case-studies/${entry.slug}`}
+                  category={entry.category}
+                  readingTime={entry.readingTime}
+                  title={entry.title}
+                  heroImageLabel={entry.heroImageLabel}
+                  heroImageSrc={entry.heroImageSrc}
+                  linkLabel="Read the case study"
+                />
               </Reveal>
             ))}
           </ul>
+
+          <Reveal className="mt-10">
+            <Button href="/case-studies" variant="secondary">
+              See all case studies
+            </Button>
+          </Reveal>
         </Container>
       </Section>
 
@@ -309,12 +297,18 @@ function OfferIcon({ index }: { index: number }) {
           <path d="M5.5 9.5a4.5 4.5 0 0 0 9 0M10 14v3" {...stroke} />
         </svg>
       );
-    default: // Ready to Deploy Products
+    case 4: // Chat AI
       return (
         <svg {...props}>
-          <path d="M10 2.5c2.5 1.6 4 4.3 4 7.5 0 1.4-.3 2.7-.8 3.8L10 17l-3.2-3.2A8.6 8.6 0 0 1 6 10c0-3.2 1.5-5.9 4-7.5Z" {...stroke} />
-          <circle cx="10" cy="9.5" r="1.6" {...stroke} />
-          <path d="M7.5 14.5 6 18l2.8-1.2M12.5 14.5 14 18l-2.8-1.2" {...stroke} />
+          <path d="M4.5 4h11a1.5 1.5 0 0 1 1.5 1.5v7a1.5 1.5 0 0 1-1.5 1.5H9.5L6 17v-3H4.5A1.5 1.5 0 0 1 3 12.5v-7A1.5 1.5 0 0 1 4.5 4Z" {...stroke} />
+          <path d="M7 8h6M7 10.5h3.5" {...stroke} />
+        </svg>
+      );
+    default: // Developer Staff Augmentation
+      return (
+        <svg {...props}>
+          <circle cx="8" cy="7" r="2.6" {...stroke} />
+          <path d="M3 17a5 5 0 0 1 10 0M14 4.6a2.6 2.6 0 0 1 0 4.8M15.5 12.2A5 5 0 0 1 18 17" {...stroke} />
         </svg>
       );
   }

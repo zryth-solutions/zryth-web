@@ -1,10 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { Button } from "@/components/ui/Button";
 
 /**
  * Shared editorial article shape, used by Case Studies, Products and
- * Research Work. `body` is an ordered list of blocks (heading / subheading /
+ * the case studies. `body` is an ordered list of blocks (heading / subheading /
  * paragraph / image) rendered top to bottom, exactly like a Medium article:
  * add, remove or reorder blocks freely, the template just renders whatever's
  * here. No cards, no gradients, no metric tiles — the three sections should
@@ -14,6 +15,7 @@ export type ArticleBlock =
   | { type: "heading"; text: string }
   | { type: "subheading"; text: string }
   | { type: "paragraph"; text: string }
+  | { type: "list"; items: string[] }
   | {
       type: "image";
       label: string;
@@ -21,7 +23,9 @@ export type ArticleBlock =
       src?: string;
       /** Tailwind aspect ratio class, e.g. "aspect-[4/3]". Defaults to 16/10. */
       ratio?: string;
-    };
+    }
+  /** An interactive or animated figure placed between paragraphs. */
+  | { type: "figure"; node: ReactNode };
 
 export type ArticleData = {
   slug: string;
@@ -48,9 +52,12 @@ export function ArticleTemplate({
   download,
   backHref,
   backLabel,
+  heroSlot,
 }: {
   article: ArticleData;
-  /** e.g. "Zryth Research", "Zryth Case Studies", "Zryth Products". */
+  /** Replaces the hero image, e.g. with an animated preview. */
+  heroSlot?: ReactNode;
+  /** e.g. "Zryth Case Studies", "Zryth Services", "Zryth Our Work". */
   closingLabel: string;
   next?: { title: string; href: string } | null;
   /** Optional cross-link, e.g. a product pointing to its case study. */
@@ -91,11 +98,13 @@ export function ArticleTemplate({
 
       {/* Hero image */}
       <div className="mx-auto max-w-[900px] px-6 sm:px-8">
-        <PlaceholderImage
-          label={article.heroImageLabel}
-          src={article.heroImageSrc}
-          ratio={article.heroImageRatio ?? "aspect-[16/9]"}
-        />
+        {heroSlot ?? (
+          <PlaceholderImage
+            label={article.heroImageLabel}
+            src={article.heroImageSrc}
+            ratio={article.heroImageRatio ?? "aspect-[16/9]"}
+          />
+        )}
       </div>
 
       {/* Article body */}
@@ -171,6 +180,20 @@ function ArticleBlockView({ block }: { block: ArticleBlock }) {
           {block.text}
         </p>
       );
+    case "list":
+      return (
+        <ul className="mt-6 space-y-3 text-[1.125rem] leading-[1.7] text-ink-soft">
+          {block.items.map((item) => (
+            <li key={item} className="flex gap-4">
+              <span aria-hidden="true" className="mt-[0.8rem] size-1.5 shrink-0 rounded-full bg-brand-500" />
+              <span className="pretty">{item}</span>
+            </li>
+          ))}
+        </ul>
+      );
+    case "figure":
+      // Wider than the text column on large screens, so side-by-side panes fit.
+      return <div className="mt-12 lg:-mx-[90px]">{block.node}</div>;
     case "image":
       return (
         <div className="mt-10 sm:-mx-10">

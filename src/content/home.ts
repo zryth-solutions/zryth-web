@@ -11,15 +11,8 @@ export const STUDIO_OFFER = {
   eyebrow: "AI Labs & Software Studio",
   title: "Zryth Helps With",
   lead: "Ready-to-deploy AI products, or custom AI and software built around what you need.",
-  items: [
-    "Custom AI Automation",
-    "Custom Software Development",
-    "Document AI",
-    "Voice AI",
-    "Ready to Deploy Products",
-  ],
   href: "/products",
-  cta: "Explore Products & Services",
+  cta: "Explore Our Work",
   secondaryHref: "/transformation",
   secondaryCta: "View success stories",
 };
@@ -95,37 +88,5 @@ export const INDUSTRY_PRODUCTS = [
     name: "Oswaal AI",
     line: "Chapter-wise learning, doubt-solving and tests in one AI hub.",
     href: "/products/ai-education",
-  },
-];
-
-/**
- * Results are shown as direction of change until verified numbers exist.
- * Replace the arrows with real figures only where they can be substantiated.
- */
-export const RESULTS = [
-  {
-    sector: "Textile Manufacturing",
-    headline: "Manual Mill Operations To One Digital System",
-    metrics: ["Inventory ↓", "Visibility ↑"],
-    href: "/case-studies/mill-software",
-    /** Set a path under /public to replace the placeholder panel. */
-    image: "/products/mill-software-banner.png" as string | undefined,
-    imageAlt: "Mill operations dashboard",
-  },
-  {
-    sector: "Finance & Audit",
-    headline: "Audit Preparation To AI-Assisted Review",
-    metrics: ["Prep Time ↓", "Capacity ↑"],
-    href: "/case-studies/audit-firm-transformation",
-    image: "/products/finance-auditor-banner-2.png" as string | undefined,
-    imageAlt: "Audit reconciliation screen",
-  },
-  {
-    sector: "Education",
-    headline: "One Pace For All To A Tutor For Each Student",
-    metrics: ["Access ↑", "Teacher Load ↓"],
-    href: "/case-studies/publisher-ai-transformation",
-    image: "/products/ai-education-banner.png" as string | undefined,
-    imageAlt: "AI tutoring session",
   },
 ];

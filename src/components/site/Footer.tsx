@@ -34,14 +34,14 @@ const columns = [
     links: [
       { href: "/transformation", label: "Success Stories" },
       { href: "/case-studies", label: "Case Studies" },
-      { href: "/research-work", label: "Research Work" },
       { href: "/about", label: "About" },
     ],
   },
   {
     title: "Build",
     links: [
-      { href: "/products", label: "Products" },
+      { href: "/services", label: "Services" },
+      { href: "/products", label: "Our Work" },
       { href: "/get-started", label: "Get started" },
     ],
   },
@@ -134,8 +134,18 @@ export function Footer() {
 
       <div className="border-t border-line">
         <Container className="flex flex-col gap-2 py-6 text-xs text-ink-faint sm:flex-row sm:items-center sm:justify-between">
-          <p>&copy; {new Date().getFullYear()} Zryth. All rights reserved.</p>
-          <p>From work. To done.</p>
+          <p>
+            &copy; {new Date().getFullYear()} Zryth Solutions Private Limited. All rights reserved.
+          </p>
+          <nav aria-label="Legal" className="flex flex-wrap items-center gap-x-5 gap-y-1">
+            <Link href="/privacy-policy" className="transition-colors hover:text-brand-600">
+              Privacy Policy
+            </Link>
+            <Link href="/terms-and-conditions" className="transition-colors hover:text-brand-600">
+              Terms &amp; Conditions
+            </Link>
+            <span>From work. To done.</span>
+          </nav>
         </Container>
       </div>
     </footer>

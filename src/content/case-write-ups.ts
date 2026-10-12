@@ -1,7 +1,7 @@
 /**
- * Research Work — uses the shared editorial article template (see
- * src/components/site/ArticleTemplate.tsx), the same one Case Studies and
- * Products use. `body` is an ordered list of blocks (heading / subheading /
+ * Case-study write-ups (formerly "Research Work") — they use the shared
+ * editorial article template (see src/components/site/ArticleTemplate.tsx),
+ * the same one the client stories and Products use. `body` is an ordered list of blocks (heading / subheading /
  * paragraph / image) rendered top to bottom, exactly like a Medium article:
  * add, remove or reorder blocks freely, the page just renders whatever's
  * here. To start a new placeholder entry, copy the block shapes below and
@@ -11,16 +11,16 @@
 
 import type { ArticleData } from "@/components/site/ArticleTemplate";
 
-export type ResearchWork = ArticleData;
+export type WriteUp = ArticleData;
 
-export const RESEARCH_WORK: ResearchWork[] = [
+export const WRITE_UPS: WriteUp[] = [
   {
     slug: "mill-software-bill-verification",
     category: "Case Study",
     title: "The Bills Nobody Was Checking",
     subtitle:
       "How an AI-powered scanning system took Mill Software's invoice verification from around 70% accuracy to 98%, even on handwritten bills.",
-    author: "Zryth Research",
+    author: "Zryth",
     publishedDate: "September 2026",
     readingTime: "4 min read",
     heroImageLabel: "[Bill scanning system in use]",
@@ -110,7 +110,7 @@ export const RESEARCH_WORK: ResearchWork[] = [
     title: "The ₹12 Question",
     subtitle:
       "How a hybrid AI and OCR pipeline turned mock-test PDFs into structured questions, cutting cost per question from ₹12 to ₹5 and processing time by 83%.",
-    author: "Zryth Research",
+    author: "Zryth",
     publishedDate: "September 2026",
     readingTime: "5 min read",
     heroImageLabel: "[Mock-test PDF being processed by AI]",
@@ -210,16 +210,16 @@ export const RESEARCH_WORK: ResearchWork[] = [
   },
 ];
 
-export function getResearchWork(slug: string) {
-  return RESEARCH_WORK.find((c) => c.slug === slug);
+export function getWriteUp(slug: string) {
+  return WRITE_UPS.find((c) => c.slug === slug);
 }
 
 /**
  * The next entry in the list, wrapping around, used for the closing nav.
  * Returns undefined when there's nothing else to show (e.g. only one entry).
  */
-export function getNextResearchWork(slug: string) {
-  if (RESEARCH_WORK.length <= 1) return undefined;
-  const i = RESEARCH_WORK.findIndex((c) => c.slug === slug);
-  return RESEARCH_WORK[(i + 1) % RESEARCH_WORK.length];
+export function getNextWriteUp(slug: string) {
+  if (WRITE_UPS.length <= 1) return undefined;
+  const i = WRITE_UPS.findIndex((c) => c.slug === slug);
+  return WRITE_UPS[(i + 1) % WRITE_UPS.length];
 }

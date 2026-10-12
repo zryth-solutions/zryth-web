@@ -6,6 +6,16 @@ Zryth works in two ways: (1) AI Transformation — we go into a business, find w
 
 Zryth is based in Noida, India, and works with clients in milling/manufacturing, finance & audit, and publishing/education.
 
+## Services
+
+- [Services](https://zryth.com/services): Custom AI automation, custom software development, Document AI, Voice AI, Chat AI and developer staff augmentation.
+- [Custom AI Automation](https://zryth.com/services/custom-ai-automation): AI agents and workflows that take repetitive manual work off your team.
+- [Custom Software Development](https://zryth.com/services/custom-software-development): Internal tools, portals and products built around how you operate.
+- [Document AI](https://zryth.com/services/document-ai): Invoices, bills and forms turned into checked records, matched against your data.
+- [Voice AI](https://zryth.com/services/voice-ai): Voice agents for bookings, lookups and confirmations, connected to your systems.
+- [Chat AI](https://zryth.com/services/chat-ai): Chat assistants that complete the workflow or hand off cleanly.
+- [Developer Staff Augmentation](https://zryth.com/services/developer-staff-augmentation): AI and full-stack developers added to your team.
+
 ## Company
 
 - [About Zryth](https://zryth.com/about): Who Zryth is and how it works with businesses.
@@ -14,21 +24,33 @@ Zryth is based in Noida, India, and works with clients in milling/manufacturing,
 
 ## Case studies
 
+- [Case studies index](https://zryth.com/case-studies): Industry case studies on Document AI plus interactive sample walkthroughs of Voice AI and Chat AI, and the written client stories below. The Voice AI and Chat AI walkthroughs are demonstrations on sample data, not live agents or real client results.
+- [Why a flour mill needs Document AI](https://zryth.com/case-studies/document-ai-flour-mills): Where Document AI helps a mill with bills and purchase orders, and the verification accuracy it reached at Mill Software (about 70-75% to 98%).
+- [Why a publisher needs Document AI](https://zryth.com/case-studies/document-ai-publishers): Where Document AI helps a publisher with question papers and study content, and the cost per question falling from about Rs 12 to Rs 5.
+- [Why a CA firm needs Document AI](https://zryth.com/case-studies/document-ai-ca-firms): Where Document AI helps a CA firm reconcile ledgers, GST and TDS, with audits about 60% faster and about 80% fewer manual errors at ARC & Associates.
+- [Calls that lead to action](https://zryth.com/case-studies/voice-ai): Interactive sample walkthrough with a scripted call that updates a booking.
+- [Support that completes the workflow](https://zryth.com/case-studies/chat-ai): Interactive sample walkthrough of a support chat that completes an action or hands off.
 - [Running a Mill on Phone Calls and Memory](https://zryth.com/case-studies/mill-software): How Mill Software connected procurement, reconciliation and sales into one system for a flour mill.
 - [Audits That Used To Take Days, Now Take Hours](https://zryth.com/case-studies/audit-firm-transformation): How FinanceAuditor.ai cut audit time by 60% for a CA firm.
 - [One Publisher, Every Stage Rebuilt With AI](https://zryth.com/case-studies/publisher-ai-transformation): How Oswaal Books used AI across content, warehousing and a direct-to-student product.
 
-## Products
+## Our Work (products)
 
 - [FinanceAuditor.ai](https://zryth.com/products/finance-auditor): AI-powered audit platform — Tally, GST and TDS reconciliation, auto-generated financials and tax audit reports.
 - [Mill Software](https://zryth.com/products/mill-software): Procurement, reconciliation, sales, dispatch and billing for the milling industry, in one system.
 - [Oswaal AI](https://zryth.com/products/ai-education): AI learning hub for students — chapter-wise content, AI chat, adaptive tests, mind maps and podcasts.
 - [Learning](https://zryth.com/products/learning): Platform to run corporate or institutional training and learning from one place.
 
-## Research
+## Case study write-ups
 
-- [The Bills Nobody Was Checking](https://zryth.com/research-work/mill-software-bill-verification): Applied research on automated bill verification for the milling industry.
-- [The ₹12 Question](https://zryth.com/research-work/mock-test-question-extraction): Applied research on the cost and accuracy of AI + OCR question extraction from mock-test PDFs.
+- [The Bills Nobody Was Checking](https://zryth.com/case-studies/mill-software-bill-verification): Applied case study on automated bill verification for the milling industry.
+- [The ₹12 Question](https://zryth.com/case-studies/mock-test-question-extraction): Applied case study on the cost and accuracy of AI + OCR question extraction from mock-test PDFs.
+
+## Legal
+
+- [Privacy Policy](https://zryth.com/privacy-policy): How Zryth Solutions Private Limited collects, uses and protects personal data.
+- [Terms & Conditions](https://zryth.com/terms-and-conditions): Terms for the website and for Zryth services.
+- [DPIIT recognition certificate](https://zryth.com/credentials/dpiit-certificate.pdf): Startup recognition certificate, DIPP233348.
 
 ## Contact
 

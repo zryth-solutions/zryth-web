@@ -1,20 +1,21 @@
 import type { Metadata } from "next";
 import { Container, Section } from "@/components/ui/Layout";
+import { Reveal } from "@/components/motion/Reveal";
 import { PageHero } from "@/components/site/PageHero";
 import { BannerCTA } from "@/components/site/BannerCTA";
-import { CaseStudiesBrowser } from "@/components/site/CaseStudiesBrowser";
-import { CASE_STUDIES } from "@/content/case-studies";
+import { ArticleIndexCard } from "@/components/site/ArticleTemplate";
+import { WRITE_UPS } from "@/content/case-write-ups";
 
 export const metadata: Metadata = {
-  title: "Case studies",
+  title: "Case Studies",
   description:
-    "The business value AI actually created for a mill, a CA firm and a publisher, and what the same approach could do for you.",
+    "Applied AI case studies from Zryth: what we investigated, what we tested, and what we learned building it.",
   keywords: [
     "AI case studies",
-    "business automation case studies",
-    "AI ROI examples",
-    "AI transformation results",
-    "AI implementation examples",
+    "applied AI research",
+    "AI OCR case study",
+    "document processing case study",
+    "AI accuracy benchmarks",
   ],
   alternates: { canonical: "/case-studies" },
 };
@@ -23,20 +24,33 @@ export default function CaseStudiesPage() {
   return (
     <>
       <PageHero
-        eyebrow="Case studies"
-        lines={["The business value", "AI actually creates."]}
+        eyebrow="Case Studies"
+        lines={["Applied AI work,", "not a portfolio page."]}
         gradientFrom={1}
       >
         <p className="text-lead text-ink-soft pretty">
-          Every case here is about the return on the work: what changed, what
-          it was worth, and what the same approach could do inside your
-          business.
+          What we investigated, what we tested, what surprised us, and what
+          it means for a business like yours.
         </p>
       </PageHero>
 
       <Section tone="alt">
         <Container>
-          <CaseStudiesBrowser studies={CASE_STUDIES} />
+          <ul className="grid gap-6 lg:grid-cols-3">
+            {WRITE_UPS.map((entry, i) => (
+              <Reveal as="li" key={entry.slug} delay={i * 0.06}>
+                <ArticleIndexCard
+                  href={`/case-studies/${entry.slug}`}
+                  category={entry.category}
+                  readingTime={entry.readingTime}
+                  title={entry.title}
+                  heroImageLabel={entry.heroImageLabel}
+                  heroImageSrc={entry.heroImageSrc}
+                  linkLabel="Read the case study"
+                />
+              </Reveal>
+            ))}
+          </ul>
 
           <div className="mt-20">
             <BannerCTA />

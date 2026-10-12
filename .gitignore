@@ -42,3 +42,6 @@ next-env.d.ts
 
 # Local Netlify folder
 .netlify
+
+# Demo audio generator (installs its own deps; never part of the site bundle)
+/scripts/demos/audio/node_modules

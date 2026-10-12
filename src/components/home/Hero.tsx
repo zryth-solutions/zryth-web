@@ -50,7 +50,7 @@ export function Hero() {
               <div className="mt-9 flex flex-wrap items-center gap-3">
                 <Button href="/transformation">View Success Stories</Button>
                 <Button href="/products" variant="secondary">
-                  Explore Products
+                  Explore Our Work
                 </Button>
               </div>
             </motion.div>

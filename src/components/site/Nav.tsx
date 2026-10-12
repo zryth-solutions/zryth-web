@@ -9,10 +9,10 @@ import { Button } from "@/components/ui/Button";
 import { Wordmark } from "@/components/site/Wordmark";
 
 const links = [
+  { href: "/services", label: "Services" },
   { href: "/transformation", label: "Success Stories" },
   { href: "/case-studies", label: "Case Studies" },
-  { href: "/research-work", label: "Research Work" },
-  { href: "/products", label: "Products" },
+  { href: "/products", label: "Our Work" },
   { href: "/about", label: "About" },
 ];
 

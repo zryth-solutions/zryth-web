@@ -2,6 +2,7 @@
 
 import { useId, useState, type FormEvent, type ReactNode } from "react";
 import { useSearchParams } from "next/navigation";
+import { getUseCasePrefill } from "@/content/use-cases";
 import { motion, useReducedMotion } from "framer-motion";
 import {
   BOOKING_LIST,
@@ -87,6 +88,10 @@ export function WorkflowForm() {
   const [booking, setBooking] = useState<BookingSlug>(
     isBookingSlug(requested) ? requested : "discovery-audit",
   );
+
+  // "Build this for my team" on a case study or service passes ?useCase=<id>.
+  // Only known demo ids are used, so arbitrary query text never reaches the form.
+  const workflowPrefill = getUseCasePrefill(searchParams.get("useCase"));
 
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [status, setStatus] = useState<"idle" | "sending" | "error">("idle");
@@ -244,6 +249,7 @@ export function WorkflowForm() {
                 id={id}
                 name={field.name}
                 rows={4}
+                defaultValue={field.name === "workflow" ? workflowPrefill : undefined}
                 required={field.required}
                 aria-invalid={error ? true : undefined}
                 aria-describedby={describedBy}
