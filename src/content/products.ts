@@ -21,9 +21,136 @@ export type Product = ArticleData & {
   /** Optional downloadable brochure, shown as a button under the byline. */
   brochureHref?: string;
   brochureLabel?: string;
+  /** Where people can try the live product: website and app stores. */
+  liveLinks?: LiveLink[];
 };
 
+export type LiveLink = { kind: "website" | "playstore" | "appstore"; href: string };
+
 export const PRODUCTS: Product[] = [
+  {
+    slug: "ai-education",
+    category: "Education",
+    title: "Oswaal AI",
+    subtitle: "One AI hub for every chapter, doubt and test.",
+    author: "Zryth Product Team",
+    publishedDate: "September 2026",
+    readingTime: "4 min read",
+    heroImageLabel: "[Oswaal AI: chapter-wise learning hub, home screen]",
+    heroImageSrc: "/products/ai-education-banner.png",
+    heroImageRatio: "aspect-[16/9]",
+    body: [
+      { type: "heading", text: "Everything a student needs in one place" },
+      {
+        type: "paragraph",
+        text: "Students used to switch between apps and textbooks for notes, doubts, tests and revision, working through slow, generic study material with no help built around them personally. Oswaal AI brings all of it into one place, chapter-wise study, AI doubt-solving, custom tests, games and revision tools, for instant, exam-focused learning built around each student's own board, exam and book. It saves time, clears doubts faster and makes exam preparation smarter.",
+      },
+      { type: "heading", text: "Study a chapter the way that works for you" },
+      {
+        type: "paragraph",
+        text: "Learn opens any book chapter-wise in one smart learning hub, with a switcher for how to study it, Podcast, PPT, Mindmap, Flashcards or more, plus past year papers and current affairs alongside it.",
+      },
+      {
+        type: "image",
+        label: "[A chapter's book card, with Podcast, PPT and Mindmap buttons plus Past Year Papers and Current Affairs]",
+        src: "/products/ai-education-book-card.webp",
+        ratio: "aspect-[16/9]",
+      },
+      { type: "subheading", text: "Podcast and PPT, for listening and watching" },
+      {
+        type: "paragraph",
+        text: "Podcast turns the chapter into an audio lesson to play on the go, and PPT auto-generates narrated chapter slides for a quick visual pass.",
+      },
+      {
+        type: "image",
+        label: "[Podcast: a chapter as an audio lesson]",
+        src: "/products/ai-education-podcast.webp",
+        ratio: "aspect-[16/9]",
+      },
+      {
+        type: "image",
+        label: "[PPT: auto-generated, narrated chapter slides]",
+        src: "/products/ai-education-ppt.webp",
+        ratio: "aspect-[16/9]",
+      },
+      { type: "subheading", text: "Mindmap and Flashcards, for making it stick" },
+      {
+        type: "paragraph",
+        text: "Mindmap lays out a chapter's key concepts and how they connect, and Flashcards give quick, bite-sized cards for recall and revision.",
+      },
+      {
+        type: "image",
+        label: "[Mindmap: a chapter's key concepts, connected]",
+        src: "/products/ai-education-mindmap.webp",
+        ratio: "aspect-[16/9]",
+      },
+      { type: "subheading", text: "Doubts answered instantly" },
+      {
+        type: "paragraph",
+        text: "AI Chat answers doubts scoped to the selected subject and chapter, while the Guide Agent works like a ChatGPT-style assistant for anything beyond it.",
+      },
+      {
+        type: "image",
+        label: "[AI Chat answering a doubt, scoped to the selected book and chapter]",
+        src: "/products/ai-education-ai-chat.webp",
+        ratio: "aspect-[16/9]",
+      },
+      { type: "subheading", text: "Tests that adjust to the student" },
+      {
+        type: "paragraph",
+        text: "Chapter-wise Tests can be tuned by difficulty, time limit and format. When a question stalls a student, AI Assistance steps in with Show Hint, Similar Question and Ask AI, and full-length, timed Mock Tests build readiness for the real exam.",
+      },
+      {
+        type: "image",
+        label: "[A full-length, timed Mock Test in progress]",
+        src: "/products/ai-education-mock-test.webp",
+        ratio: "aspect-[8/5]",
+      },
+      { type: "subheading", text: "Revision that doesn't feel repetitive" },
+      {
+        type: "paragraph",
+        text: "Learning Games turn revision into simulation, virtual lab, matching games, quizzes and flashcards.",
+      },
+      {
+        type: "image",
+        label: "[Learning Games: quiz, flashcards, puzzle, word builder and creative builder]",
+        src: "/products/ai-education-learning-games.webp",
+        ratio: "aspect-[16/9]",
+      },
+      {
+        type: "paragraph",
+        text: "Students can also write and save their own prompts for any chapter in a Prompt Library, share them in the Prompt Community and track rank and performance, while past year question papers and current affairs keep preparation grounded in the actual exam.",
+      },
+      {
+        type: "image",
+        label: "[Prompt Community: shared prompts ranked by performance]",
+        src: "/products/ai-education-prompt-community.webp",
+        ratio: "aspect-[16/9]",
+      },
+      { type: "heading", text: "How a student actually uses it" },
+      {
+        type: "paragraph",
+        text: "A student selects their board, exam and book, CBSE 12th Biology, for instance, learns the chapter through Podcast, PPT, Mindmap and Flashcards, clears doubts instantly with AI Chat or the Guide Agent, practises with Chapter-wise Tests, Mock Tests and Learning Games, then tracks performance to revise the weak areas that actually move the score.",
+      },
+      { type: "heading", text: "What it's changed for students" },
+      {
+        type: "paragraph",
+        text: "Students using Oswaal AI report spending roughly 50% less time on revision and seeing around 30% higher test scores, with doubts cleared instantly instead of waiting, and more than five separate study tools now living inside one app.",
+      },
+      {
+        type: "paragraph",
+        text: "“Oswaal AI made exam prep so much easier, I clear doubts instantly and my test scores improved within weeks,” one Class 12 CBSE student said.",
+      },
+    ],
+    closingNote:
+      "How Oswaal AI brings chapter-wise learning, AI doubt-solving, adaptive testing, games and revision tools into one hub built around each student's own board and exam.",
+    caseStudyHref: "/case-studies/publisher-ai-transformation",
+    liveLinks: [
+      { kind: "website", href: "https://oswaal.ai" },
+      { kind: "playstore", href: "https://play.google.com/store/apps/details?id=com.oswaal.ai" },
+      { kind: "appstore", href: "https://apps.apple.com/in/app/oswaal-ai/id6774501859" },
+    ],
+  },
   {
     slug: "finance-auditor",
     category: "Audit",
@@ -262,124 +389,6 @@ export const PRODUCTS: Product[] = [
     caseStudyHref: "/case-studies/mill-software",
     brochureHref: "/brochures/mill-software-brochure.pdf",
     brochureLabel: "Download Brochure",
-  },
-  {
-    slug: "ai-education",
-    category: "Education",
-    title: "Oswaal AI",
-    subtitle: "One AI hub for every chapter, doubt and test.",
-    author: "Zryth Product Team",
-    publishedDate: "September 2026",
-    readingTime: "4 min read",
-    heroImageLabel: "[Oswaal AI: chapter-wise learning hub, home screen]",
-    heroImageSrc: "/products/ai-education-banner.png",
-    heroImageRatio: "aspect-[16/9]",
-    body: [
-      { type: "heading", text: "Everything a student needs in one place" },
-      {
-        type: "paragraph",
-        text: "Students used to switch between apps and textbooks for notes, doubts, tests and revision, working through slow, generic study material with no help built around them personally. Oswaal AI brings all of it into one place, chapter-wise study, AI doubt-solving, custom tests, games and revision tools, for instant, exam-focused learning built around each student's own board, exam and book. It saves time, clears doubts faster and makes exam preparation smarter.",
-      },
-      { type: "heading", text: "Study a chapter the way that works for you" },
-      {
-        type: "paragraph",
-        text: "Learn opens any book chapter-wise in one smart learning hub, with a switcher for how to study it, Podcast, PPT, Mindmap, Flashcards or more, plus past year papers and current affairs alongside it.",
-      },
-      {
-        type: "image",
-        label: "[A chapter's book card, with Podcast, PPT and Mindmap buttons plus Past Year Papers and Current Affairs]",
-        src: "/products/ai-education-book-card.webp",
-        ratio: "aspect-[16/9]",
-      },
-      { type: "subheading", text: "Podcast and PPT, for listening and watching" },
-      {
-        type: "paragraph",
-        text: "Podcast turns the chapter into an audio lesson to play on the go, and PPT auto-generates narrated chapter slides for a quick visual pass.",
-      },
-      {
-        type: "image",
-        label: "[Podcast: a chapter as an audio lesson]",
-        src: "/products/ai-education-podcast.webp",
-        ratio: "aspect-[16/9]",
-      },
-      {
-        type: "image",
-        label: "[PPT: auto-generated, narrated chapter slides]",
-        src: "/products/ai-education-ppt.webp",
-        ratio: "aspect-[16/9]",
-      },
-      { type: "subheading", text: "Mindmap and Flashcards, for making it stick" },
-      {
-        type: "paragraph",
-        text: "Mindmap lays out a chapter's key concepts and how they connect, and Flashcards give quick, bite-sized cards for recall and revision.",
-      },
-      {
-        type: "image",
-        label: "[Mindmap: a chapter's key concepts, connected]",
-        src: "/products/ai-education-mindmap.webp",
-        ratio: "aspect-[16/9]",
-      },
-      { type: "subheading", text: "Doubts answered instantly" },
-      {
-        type: "paragraph",
-        text: "AI Chat answers doubts scoped to the selected subject and chapter, while the Guide Agent works like a ChatGPT-style assistant for anything beyond it.",
-      },
-      {
-        type: "image",
-        label: "[AI Chat answering a doubt, scoped to the selected book and chapter]",
-        src: "/products/ai-education-ai-chat.webp",
-        ratio: "aspect-[16/9]",
-      },
-      { type: "subheading", text: "Tests that adjust to the student" },
-      {
-        type: "paragraph",
-        text: "Chapter-wise Tests can be tuned by difficulty, time limit and format. When a question stalls a student, AI Assistance steps in with Show Hint, Similar Question and Ask AI, and full-length, timed Mock Tests build readiness for the real exam.",
-      },
-      {
-        type: "image",
-        label: "[A full-length, timed Mock Test in progress]",
-        src: "/products/ai-education-mock-test.webp",
-        ratio: "aspect-[8/5]",
-      },
-      { type: "subheading", text: "Revision that doesn't feel repetitive" },
-      {
-        type: "paragraph",
-        text: "Learning Games turn revision into simulation, virtual lab, matching games, quizzes and flashcards.",
-      },
-      {
-        type: "image",
-        label: "[Learning Games: quiz, flashcards, puzzle, word builder and creative builder]",
-        src: "/products/ai-education-learning-games.webp",
-        ratio: "aspect-[16/9]",
-      },
-      {
-        type: "paragraph",
-        text: "Students can also write and save their own prompts for any chapter in a Prompt Library, share them in the Prompt Community and track rank and performance, while past year question papers and current affairs keep preparation grounded in the actual exam.",
-      },
-      {
-        type: "image",
-        label: "[Prompt Community: shared prompts ranked by performance]",
-        src: "/products/ai-education-prompt-community.webp",
-        ratio: "aspect-[16/9]",
-      },
-      { type: "heading", text: "How a student actually uses it" },
-      {
-        type: "paragraph",
-        text: "A student selects their board, exam and book, CBSE 12th Biology, for instance, learns the chapter through Podcast, PPT, Mindmap and Flashcards, clears doubts instantly with AI Chat or the Guide Agent, practises with Chapter-wise Tests, Mock Tests and Learning Games, then tracks performance to revise the weak areas that actually move the score.",
-      },
-      { type: "heading", text: "What it's changed for students" },
-      {
-        type: "paragraph",
-        text: "Students using Oswaal AI report spending roughly 50% less time on revision and seeing around 30% higher test scores, with doubts cleared instantly instead of waiting, and more than five separate study tools now living inside one app.",
-      },
-      {
-        type: "paragraph",
-        text: "“Oswaal AI made exam prep so much easier, I clear doubts instantly and my test scores improved within weeks,” one Class 12 CBSE student said.",
-      },
-    ],
-    closingNote:
-      "How Oswaal AI brings chapter-wise learning, AI doubt-solving, adaptive testing, games and revision tools into one hub built around each student's own board and exam.",
-    caseStudyHref: "/case-studies/publisher-ai-transformation",
   },
   {
     slug: "learning",

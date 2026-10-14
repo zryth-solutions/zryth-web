@@ -15,6 +15,11 @@ const variants = {
   ghost: "text-ink-soft hover:text-brand-600",
 } as const;
 
+/** Button styling for elements that aren't links, e.g. a <button> that opens a dialog. */
+export function buttonClasses(variant: keyof typeof variants = "primary") {
+  return `${base} ${variants[variant]}`;
+}
+
 export function Button({
   href,
   children,

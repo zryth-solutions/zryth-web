@@ -15,6 +15,8 @@ const nextConfig: NextConfig = {
         destination: `/case-studies/${slug}`,
         permanent: true,
       })),
+      // Resources has one section for now, so its index is the tools hub.
+      { source: "/resources", destination: "/resources/tools", permanent: false },
       // The generic Document AI walkthrough was replaced by industry-specific case studies.
       { source: "/case-studies/document-ai", destination: "/case-studies", permanent: false },
     ];

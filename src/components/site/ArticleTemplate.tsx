@@ -53,10 +53,13 @@ export function ArticleTemplate({
   backHref,
   backLabel,
   heroSlot,
+  headerSlot,
 }: {
   article: ArticleData;
   /** Replaces the hero image, e.g. with an animated preview. */
   heroSlot?: ReactNode;
+  /** Extra content under the byline, e.g. links to the live product. */
+  headerSlot?: ReactNode;
   /** e.g. "Zryth Case Studies", "Zryth Services", "Zryth Our Work". */
   closingLabel: string;
   next?: { title: string; href: string } | null;
@@ -85,6 +88,8 @@ export function ArticleTemplate({
           <p className="mt-8 text-sm text-ink-faint">
             {article.author} · {article.publishedDate} · {article.readingTime}
           </p>
+
+          {headerSlot && <div className="mt-8 flex justify-center">{headerSlot}</div>}
 
           {download && (
             <div className="mt-8">
@@ -261,6 +266,7 @@ export function ArticleIndexCard({
   heroImageLabel,
   heroImageSrc,
   linkLabel,
+  actions,
 }: {
   href: string;
   category: string;
@@ -269,12 +275,11 @@ export function ArticleIndexCard({
   heroImageLabel: string;
   heroImageSrc?: string;
   linkLabel: string;
+  /** Small extra links beside the card's own link, e.g. the live product. */
+  actions?: ReactNode;
 }) {
   return (
-    <Link
-      href={href}
-      className="flex h-full flex-col overflow-hidden rounded-xl border border-line bg-surface transition-colors duration-200 hover:border-brand-300"
-    >
+    <div className="relative flex h-full flex-col overflow-hidden rounded-xl border border-line bg-surface transition-colors duration-200 hover:border-brand-300">
       {heroImageSrc ? (
         <div className="relative aspect-[16/10] w-full overflow-hidden bg-surface-alt">
           <Image
@@ -302,10 +307,17 @@ export function ArticleIndexCard({
 
         <h2 className="mt-5 flex-1 text-h3 font-semibold balance">{title}</h2>
 
-        <span className="mt-8 inline-flex items-center gap-2 text-[0.9375rem] font-medium text-brand-600">
-          {linkLabel}
-        </span>
+        {/* The whole card is this link; `actions` sit beside it, above the overlay. */}
+        <div className="mt-8 flex min-h-10 items-center justify-between gap-4">
+          <Link
+            href={href}
+            className="inline-flex items-center gap-2 text-[0.9375rem] font-medium text-brand-600 after:absolute after:inset-0"
+          >
+            {linkLabel}
+          </Link>
+          {actions}
+        </div>
       </div>
-    </Link>
+    </div>
   );
 }

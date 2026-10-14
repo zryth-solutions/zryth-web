@@ -9,6 +9,8 @@ type Logo = {
   height: number;
   /** Reads larger than the rest of the strip, on every breakpoint. */
   large?: boolean;
+  /** Wide wordmark: one step shorter on desktop so it doesn't dominate the strip. */
+  compact?: boolean;
 };
 
 export const MODEL_LOGOS: Logo[] = [
@@ -28,6 +30,7 @@ export const CLOUD_LOGOS: Logo[] = [
 /** Businesses Zryth has delivered work for — shown on the homepage. */
 export const CLIENT_LOGOS: Logo[] = [
   { name: "Oswaal Books", src: "/logos/clients/oswaal.avif", width: 400, height: 81 },
+  { name: "Cognizant", src: "/logos/clients/cognizant.png", width: 960, height: 172, compact: true },
   { name: "Anuyog Softwares", src: "/logos/clients/anuyog.png", width: 1280, height: 720 },
   { name: "Dimple Collection", src: "/logos/clients/dimple.avif", width: 240, height: 89 },
   {
@@ -86,7 +89,7 @@ export function ClientLogoStrip({
   return (
     <RevealGroup
       as="ul"
-      className={`flex flex-wrap items-center justify-center gap-x-10 gap-y-6 sm:gap-x-16 sm:gap-y-8 ${className}`}
+      className={`flex flex-wrap items-center justify-center gap-x-10 gap-y-6 sm:gap-x-12 sm:gap-y-8 ${className}`}
     >
       {logos.map((logo) => (
         <RevealItem as="li" key={logo.name}>
@@ -96,7 +99,7 @@ export function ClientLogoStrip({
             width={logo.width}
             height={logo.height}
             className={`w-auto object-contain opacity-70 grayscale transition duration-200 hover:opacity-100 hover:grayscale-0 ${
-              logo.large ? "h-14 sm:h-[88px]" : "h-9 sm:h-14"
+              logo.large ? "h-14 sm:h-[88px]" : logo.compact ? "h-9 sm:h-12" : "h-9 sm:h-14"
             }`}
           />
         </RevealItem>

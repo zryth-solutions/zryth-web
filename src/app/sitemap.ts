@@ -3,6 +3,7 @@ import { CASE_STUDIES } from "@/content/case-studies";
 import { CARDS } from "@/content/demos/cards";
 import { PRODUCTS } from "@/content/products";
 import { SERVICES } from "@/content/services";
+import { TOOLS } from "@/content/tools";
 import { WRITE_UPS } from "@/content/case-write-ups";
 
 const SITE_URL = "https://zryth.com";
@@ -14,6 +15,7 @@ const STATIC_ROUTES: { path: string; priority: number }[] = [
   { path: "/transformation", priority: 0.9 },
   { path: "/case-studies", priority: 0.9 },
   { path: "/products", priority: 0.9 },
+  { path: "/resources/tools", priority: 0.8 },
   { path: "/about", priority: 0.6 },
   { path: "/get-started", priority: 0.9 },
   { path: "/privacy-policy", priority: 0.3 },
@@ -58,6 +60,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  const toolEntries = TOOLS.map((tool) => ({
+    url: `${SITE_URL}/resources/tools/${tool.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+  }));
+
   const researchEntries = WRITE_UPS.map((item) => ({
     url: `${SITE_URL}/case-studies/${item.slug}`,
     lastModified: now,
@@ -65,5 +74,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticEntries, ...caseStudyEntries, ...walkthroughEntries, ...serviceEntries, ...productEntries, ...researchEntries];
+  return [...staticEntries, ...caseStudyEntries, ...walkthroughEntries, ...serviceEntries, ...productEntries, ...toolEntries, ...researchEntries];
 }

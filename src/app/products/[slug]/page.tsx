@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { ArticleTemplate } from "@/components/site/ArticleTemplate";
+import { ArticleTemplate, type ArticleData } from "@/components/site/ArticleTemplate";
+import { LiveLinks } from "@/components/site/LiveLinks";
 import { PRODUCTS, getProduct, getNextProduct } from "@/content/products";
 
 export function generateStaticParams() {
@@ -46,9 +47,26 @@ export default async function ProductPage({
 
   const next = getNextProduct(slug);
 
+  // Products that are live get a closing "see it live" section as well as links up top.
+  const article: ArticleData = product.liveLinks
+    ? {
+        ...product,
+        body: [
+          ...product.body,
+          { type: "heading", text: "See it live" },
+          {
+            type: "paragraph",
+            text: `${product.title} is live. Open the website or install the app to see the work for yourself.`,
+          },
+          { type: "figure", node: <LiveLinks links={product.liveLinks} /> },
+        ],
+      }
+    : product;
+
   return (
     <ArticleTemplate
-      article={product}
+      article={article}
+      headerSlot={product.liveLinks ? <LiveLinks links={product.liveLinks} className="justify-center" /> : undefined}
       closingLabel="Zryth Our Work"
       next={{ title: next.title, href: `/products/${next.slug}` }}
       relatedLink={

@@ -4,6 +4,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { PageHero } from "@/components/site/PageHero";
 import { Button } from "@/components/ui/Button";
 import { ArticleIndexCard } from "@/components/site/ArticleTemplate";
+import { LiveLinks } from "@/components/site/LiveLinks";
 import { PRODUCTS } from "@/content/products";
 
 export const metadata: Metadata = {
@@ -48,6 +49,7 @@ export default function ProductsPage() {
                   heroImageLabel={product.heroImageLabel}
                   heroImageSrc={product.heroImageSrc}
                   linkLabel="See product"
+                  actions={product.liveLinks ? <LiveLinks links={product.liveLinks} compact className="flex-nowrap" /> : undefined}
                 />
               </Reveal>
             ))}

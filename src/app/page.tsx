@@ -47,10 +47,10 @@ export default function Home() {
         <Container>
           <Reveal>
             <p className="text-center text-sm font-medium text-ink-faint">
-              Our trusted clients
+              Trusted by people at
             </p>
           </Reveal>
-          <ClientLogoStrip logos={CLIENT_LOGOS} className="mt-6 sm:mt-8" />
+          <ClientLogoStrip logos={CLIENT_LOGOS} className="mx-auto mt-6 max-w-3xl sm:mt-8" />
         </Container>
       </Section>
 
