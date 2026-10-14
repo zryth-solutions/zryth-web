@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Work_Sans } from "next/font/google";
 import "./globals.css";
 import { Nav } from "@/components/site/Nav";
@@ -115,6 +116,12 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(WEBSITE_JSON_LD) }}
         />
+        {/* Chatbot config must exist before the Agent Desk SDK loads. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.AgentDeskConfig = { channelId: "36c1960fbeed4aaa9573e8e927b825f4" };`,
+          }}
+        />
       </head>
       <body className="antialiased">
         <a
@@ -127,6 +134,10 @@ export default function RootLayout({
         <main id="main">{children}</main>
         <Footer />
         <WhatsAppButton />
+        <Script
+          src="https://aisupport.wrytflow.com/sdk/agent-desk-sdk.min.js"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );

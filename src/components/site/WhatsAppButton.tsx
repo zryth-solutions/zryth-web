@@ -7,6 +7,9 @@ const WHATSAPP_NUMBER = PHONE.replace(/\D/g, "");
  * Fixed, site-wide contact shortcut. Deliberately kept in WhatsApp's own
  * green rather than the brand blue — it needs to read instantly as "chat on
  * WhatsApp", not as a Zryth-branded control.
+ *
+ * Offset upward so it stacks above the Agent Desk "Support" chat launcher,
+ * which the SDK pins to the bottom-right corner.
  */
 export function WhatsAppButton() {
   return (
@@ -15,7 +18,7 @@ export function WhatsAppButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat with us on WhatsApp"
-      className="group fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] shadow-[0_12px_30px_-8px_rgba(0,0,0,0.35)] transition-transform duration-200 hover:scale-105 sm:bottom-6 sm:right-6"
+      className="group fixed bottom-28 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] shadow-[0_12px_30px_-8px_rgba(0,0,0,0.35)] transition-transform duration-200 hover:scale-105 sm:bottom-32 sm:right-6"
     >
       <WhatsAppGlyph />
     </a>
