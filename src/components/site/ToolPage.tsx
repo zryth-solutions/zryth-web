@@ -78,6 +78,8 @@ function jsonLd(tool: Tool) {
 /** One tool, described on zryth.com, with a Try now button that opens the tool itself. */
 export function ToolPage({ tool }: { tool: Tool }) {
   const related = tool.related.map((s) => getTool(s)).filter((t): t is Tool => Boolean(t));
+  // The comparison takes the first alt band, so later sections swap tones to keep alternating.
+  const tone = (t: "alt" | "default") => (tool.versus ? (t === "alt" ? "default" : "alt") : t);
 
   return (
     <>
@@ -101,8 +103,43 @@ export function ToolPage({ tool }: { tool: Tool }) {
         </ul>
       </PageHero>
 
+      {tool.versus && (
+        <Section tone="alt">
+          <Container>
+            <Reveal>
+              <Eyebrow as="h2">{tool.versus.heading}</Eyebrow>
+              <p className="mt-6 max-w-2xl text-h2 font-semibold balance">{tool.versus.title}</p>
+            </Reveal>
+            <RevealGroup as="div" className="mt-12 grid gap-6 md:grid-cols-2">
+              {tool.versus.sides.map((side, i) => (
+                <RevealItem key={side.label}>
+                  <div
+                    className={`h-full rounded-xl border p-7 ${
+                      i === 1 ? "border-brand-300 bg-brand-50" : "border-line bg-surface"
+                    }`}
+                  >
+                    <h3 className={`text-h3 font-semibold ${i === 1 ? "text-brand-700" : ""}`}>{side.label}</h3>
+                    <ul className="mt-6 space-y-4 text-body">
+                      {side.points.map((point) => (
+                        <li key={point} className="flex gap-4">
+                          <span
+                            aria-hidden="true"
+                            className={`mt-[0.6rem] size-1.5 shrink-0 rounded-full ${i === 1 ? "bg-brand-500" : "bg-ink-faint"}`}
+                          />
+                          <span className={`pretty ${i === 1 ? "text-ink" : "text-ink-soft"}`}>{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </RevealItem>
+              ))}
+            </RevealGroup>
+          </Container>
+        </Section>
+      )}
+
       {/* How it works */}
-      <Section tone="alt">
+      <Section tone={tone("alt")}>
         <Container>
           <Reveal>
             <Eyebrow as="h2">How it works</Eyebrow>
@@ -130,11 +167,11 @@ export function ToolPage({ tool }: { tool: Tool }) {
       </Section>
 
       {/* Use cases */}
-      <Section>
+      <Section tone={tone("default")}>
         <Container>
           <Reveal>
             <Eyebrow as="h2">Put it to work</Eyebrow>
-            <p className="mt-6 max-w-2xl text-h2 font-semibold balance">Where a {tool.name} earns its place.</p>
+            <p className="mt-6 max-w-2xl text-h2 font-semibold balance">Where {/^[aeiou]/i.test(tool.name) ? "an" : "a"} {tool.name} earns its place.</p>
           </Reveal>
           <RevealGroup as="ul" className="mt-12 grid gap-6 lg:grid-cols-3">
             {tool.useCases.map((u) => (
@@ -172,12 +209,12 @@ export function ToolPage({ tool }: { tool: Tool }) {
       )}
 
       {/* Tips + FAQ */}
-      <Section tone={tool.compare ? "default" : "alt"}>
+      <Section tone={tone(tool.compare ? "default" : "alt")}>
         <Container>
           <div className="grid gap-14 lg:grid-cols-12 lg:gap-16">
             <Reveal className="lg:col-span-5">
               <Eyebrow as="h2">Good to know</Eyebrow>
-              <p className="mt-6 text-h3 font-semibold balance">Tips for a code that scans first time.</p>
+              <p className="mt-6 text-h3 font-semibold balance">{tool.tipsTitle ?? "Tips for a code that scans first time."}</p>
               <ul className="mt-8 space-y-4 text-body text-ink-soft">
                 {tool.tips.map((t) => (
                   <li key={t} className="flex gap-4">
