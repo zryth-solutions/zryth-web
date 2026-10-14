@@ -5,6 +5,7 @@ import "./globals.css";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { WhatsAppButton } from "@/components/site/WhatsAppButton";
+import { PostHog } from "@/components/site/PostHog";
 
 const workSans = Work_Sans({
   variable: "--font-work-sans",
@@ -122,6 +123,7 @@ export default function RootLayout({
             __html: `window.AgentDeskConfig = { channelId: "36c1960fbeed4aaa9573e8e927b825f4" };`,
           }}
         />
+        <PostHog />
       </head>
       <body className="antialiased">
         <a
