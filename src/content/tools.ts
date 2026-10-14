@@ -12,7 +12,10 @@ export type ToolSlug =
   | "dynamic-qr-code-generator"
   | "whatsapp-qr-code-generator"
   | "wifi-qr-code-generator"
-  | "vcard-qr-code-generator";
+  | "vcard-qr-code-generator"
+  | "ai-chatbot-cost-calculator";
+
+type VersusSide = { label: string; points: string[] };
 
 export type Tool = {
   slug: ToolSlug;
@@ -33,9 +36,15 @@ export type Tool = {
   steps: { title: string; body: string }[];
   useCases: { title: string; body: string }[];
   tips: string[];
+  /** Heading above the tips. Defaults to QR-code wording. */
+  tipsTitle?: string;
   faqs: { q: string; a: string }[];
   /** Shown only where a comparison helps (static vs dynamic). */
   compare?: { heading: string; rows: { label: string; body: string }[] };
+  /** Two sides compared point by point, shown near the top; the second side is highlighted. */
+  versus?: { heading: string; title: string; sides: [VersusSide, VersusSide] };
+  /** Tools default to the QR code group on the hub. */
+  category?: "ai";
   related: ToolSlug[];
 };
 
@@ -367,6 +376,99 @@ export const TOOLS: Tool[] = [
       },
     ],
     related: ["qr-code-generator", "dynamic-qr-code-generator", "whatsapp-qr-code-generator", "wifi-qr-code-generator"],
+  },
+  {
+    slug: "ai-chatbot-cost-calculator",
+    name: "AI Chatbot Cost Calculator",
+    title: "Free AI Chatbot Cost Calculator",
+    heroLines: ["AI Chatbot Cost", "Calculator."],
+    blurb: "Estimate what a website chatbot costs to run each month.",
+    lead: "Answer two questions: how many conversations each user has in a month, and how many active users you expect. Get an estimated monthly AI cost for your website chatbot, in US dollars.",
+    description:
+      "Free AI chatbot cost calculator. Enter conversations per user and monthly active users to estimate what a website chatbot costs to run each month.",
+    keywords: [
+      "AI chatbot cost calculator",
+      "chatbot cost estimate",
+      "website chatbot pricing",
+      "AI chatbot monthly cost",
+      "chatbot running cost",
+      "cost of AI customer support",
+    ],
+    badges: ["100% free", "Two questions", "No signup needed", "Results in US dollars"],
+    steps: [
+      { title: "Add your conversations", body: "Enter how many chats one person usually starts with your chatbot in a month." },
+      { title: "Add your users", body: "Enter how many different people use the chatbot in a month." },
+      { title: "See your cost", body: "Get the monthly cost, the cost per conversation, the cost per user and the cost for a year." },
+    ],
+    useCases: [
+      {
+        title: "Planning a chatbot",
+        body: "Before you build or buy a chatbot, see what it would cost to run at your traffic. A clear monthly figure makes the decision easier to discuss and approve.",
+      },
+      {
+        title: "Setting a budget",
+        body: "Turn expected users into a monthly and yearly figure you can put in a budget, and see how the cost changes as your audience grows.",
+      },
+      {
+        title: "Comparing quotes",
+        body: "Check a vendor quote against the AI usage behind it. If a plan charges far more per conversation than the AI costs, you know what you are paying for.",
+      },
+    ],
+    versus: {
+      heading: "CRM chatbot or Zryth chatbot?",
+      title: "Why a Zryth chatbot does more.",
+      sides: [
+        {
+          label: "Typical CRM chatbot",
+          points: [
+            "Answers from a script or collects a lead",
+            "Built on the vendor's templates and flows",
+            "Works mostly inside its own CRM",
+            "Limited to the actions the platform allows",
+            "Customers often repeat themselves after a handoff",
+            "Runs in the vendor's own chat widget",
+          ],
+        },
+        {
+          label: "Zryth chatbot",
+          points: [
+            "Finishes the job: looks up the record and completes the request",
+            "Built around your policies, knowledge and approval rules",
+            "Connects to your order, ticket, CRM and messaging systems",
+            "Asks before it changes anything, with clear limits",
+            "Hands off to a person with the whole conversation attached",
+            "Runs on your website and the messaging apps your customers use",
+          ],
+        },
+      ],
+    },
+    tipsTitle: "Tips for a realistic estimate.",
+    tips: [
+      "Count conversations, not messages. One visit to the chatbot is one conversation, however many messages it has.",
+      "Use monthly active users, the people who actually open the chatbot, not every visitor to your website.",
+      "Start with your current numbers, then try a higher figure to see the cost as you grow.",
+      "The estimate covers AI usage only. Hosting and taxes are not included.",
+    ],
+    faqs: [
+      {
+        q: "How is the cost calculated?",
+        a: "The calculator multiplies conversations per user by monthly active users, then prices each conversation at standard AI usage rates. Each conversation is about two minutes of back-and-forth chat.",
+      },
+      {
+        q: "What counts as a conversation?",
+        a: "A conversation starts when a visitor sends their first message to the chatbot and ends when they leave. If the same person comes back another day and chats again, that is a new conversation.",
+      },
+      {
+        q: "What is not included?",
+        a: "The estimate covers AI usage only. Hosting, databases, chatbot platform fees and taxes are not included.",
+      },
+      {
+        q: "Is the AI chatbot cost calculator free?",
+        a: "Yes. It is free, runs in your browser, and does not need an account.",
+      },
+    ],
+    category: "ai",
+    related: ["qr-code-generator", "dynamic-qr-code-generator", "whatsapp-qr-code-generator", "vcard-qr-code-generator"],
   },
 ];
 

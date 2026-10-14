@@ -8,7 +8,7 @@ import { COMING_SOON, TOOLS, TOOLS_SITE } from "@/content/tools";
 
 const TITLE = "Free Tools";
 const DESCRIPTION =
-  "Free everyday tools from Zryth: URL, dynamic, WhatsApp, WiFi and vCard QR code generators. Pick a tool, learn how it works, and try it free.";
+  "Free everyday tools from Zryth: URL, dynamic, WhatsApp, WiFi and vCard QR code generators, and an AI chatbot cost calculator. Pick a tool, learn how it works, and try it free.";
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -20,11 +20,15 @@ export const metadata: Metadata = {
     "WiFi QR code",
     "vCard QR code",
     "dynamic QR code",
+    "AI chatbot cost calculator",
     "free online tools",
   ],
   alternates: { canonical: "/resources/tools" },
   openGraph: { title: `${TITLE} | Zryth`, description: DESCRIPTION, url: "/resources/tools", type: "website" },
 };
+
+const QR_TOOLS = TOOLS.filter((t) => !t.category);
+const AI_TOOLS = TOOLS.filter((t) => t.category === "ai");
 
 const JSON_LD = {
   "@context": "https://schema.org",
@@ -45,7 +49,7 @@ export default function ToolsHubPage() {
 
       <PageHero eyebrow="Resources · Tools" lines={["Small tools.", "Big possibilities."]} gradientFrom={1}>
         <p className="text-lead text-ink-soft pretty">
-          Simple, free tools that make everyday work easier. We&rsquo;re starting with QR codes. Open any tool to see
+          Simple, free tools that make everyday work easier. Start with QR codes or estimate what an AI chatbot costs. Open any tool to see
           what it does and how it works, then try it.
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
@@ -62,7 +66,7 @@ export default function ToolsHubPage() {
             <p className="mt-6 max-w-2xl text-h2 font-semibold balance">Five ways to make a QR code useful.</p>
           </Reveal>
           <RevealGroup as="ul" className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {TOOLS.map((tool) => (
+            {QR_TOOLS.map((tool) => (
               <RevealItem as="li" key={tool.slug}>
                 <ToolCard tool={tool} />
               </RevealItem>
@@ -72,6 +76,22 @@ export default function ToolsHubPage() {
       </Section>
 
       <Section>
+        <Container>
+          <Reveal>
+            <Eyebrow as="h2">AI tools</Eyebrow>
+            <p className="mt-6 max-w-2xl text-h2 font-semibold balance">Plan your AI before you build it.</p>
+          </Reveal>
+          <RevealGroup as="ul" className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {AI_TOOLS.map((tool) => (
+              <RevealItem as="li" key={tool.slug}>
+                <ToolCard tool={tool} />
+              </RevealItem>
+            ))}
+          </RevealGroup>
+        </Container>
+      </Section>
+
+      <Section tone="alt">
         <Container>
           <Reveal>
             <Eyebrow as="h2">Coming soon</Eyebrow>
@@ -91,7 +111,7 @@ export default function ToolsHubPage() {
         </Container>
       </Section>
 
-      <Section tone="alt">
+      <Section>
         <Container>
           <Reveal>
             <p className="label text-brand-600">Built by Zryth</p>
