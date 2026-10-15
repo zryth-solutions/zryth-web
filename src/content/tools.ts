@@ -447,7 +447,7 @@ export const TOOLS: Tool[] = [
       "Count conversations, not messages. One visit to the chatbot is one conversation, however many messages it has.",
       "Use monthly active users, the people who actually open the chatbot, not every visitor to your website.",
       "Start with your current numbers, then try a higher figure to see the cost as you grow.",
-      "The estimate covers AI usage only. Hosting and taxes are not included.",
+      "This is an estimate. Taxes are not included.",
     ],
     faqs: [
       {
@@ -460,7 +460,7 @@ export const TOOLS: Tool[] = [
       },
       {
         q: "What is not included?",
-        a: "The estimate covers AI usage only. Hosting, databases, chatbot platform fees and taxes are not included.",
+        a: "Chatbot platform fees and taxes are not included.",
       },
       {
         q: "Is the AI chatbot cost calculator free?",
