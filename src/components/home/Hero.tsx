@@ -12,7 +12,7 @@ export function Hero() {
   const reduced = useReducedMotion();
 
   return (
-    <section className="relative overflow-hidden pt-32 pb-20 sm:pt-40 sm:pb-28 lg:pt-48 lg:pb-32">
+    <section className="relative overflow-hidden pt-32 pb-12 sm:pt-40 sm:pb-16 lg:pt-48 lg:pb-32">
       {/* Decorative ambient wash. */}
       <div
         aria-hidden="true"

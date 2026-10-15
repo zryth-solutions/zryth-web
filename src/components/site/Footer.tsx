@@ -48,7 +48,7 @@ const columns = [
 ];
 
 const linkClass =
-  "inline-flex min-h-11 items-center text-sm text-ink-soft transition-colors hover:text-brand-600";
+  "inline-flex min-h-8 items-center text-sm lg:min-h-11 text-ink-soft transition-colors hover:text-brand-600";
 
 export function Footer() {
   return (
@@ -57,7 +57,7 @@ export function Footer() {
       <FooterCTA />
 
       <div className="border-t border-line">
-        <Container className="flex flex-col gap-12 py-12 sm:py-16 lg:flex-row lg:justify-between">
+        <Container className="flex flex-col gap-8 py-12 lg:gap-12 sm:py-16 lg:flex-row lg:justify-between">
           <div className="max-w-xs">
             <Wordmark />
             <p className="mt-4 text-body text-ink-muted pretty">
@@ -83,13 +83,13 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="flex flex-wrap gap-16 sm:gap-24">
+          <div className="flex flex-wrap gap-10 lg:gap-24">
             {columns.map((col) => (
               <div key={col.title}>
                 <h3 className="label text-ink-faint">
                   {col.title}
                 </h3>
-                <ul className="mt-5 space-y-1">
+                <ul className="mt-3 space-y-1 lg:mt-5">
                   {col.links.map((link) => (
                     <li key={link.href}>
                       <Link href={link.href} className={linkClass}>
@@ -103,7 +103,7 @@ export function Footer() {
 
             <div>
               <h3 className="label text-ink-faint">Contact</h3>
-              <ul className="mt-5 space-y-1">
+              <ul className="mt-3 space-y-1 lg:mt-5">
                 <li>
                   <a href={`tel:${PHONE}`} className={linkClass}>
                     {PHONE}

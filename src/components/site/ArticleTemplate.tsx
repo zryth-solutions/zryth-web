@@ -296,7 +296,7 @@ export function ArticleIndexCard({
         </div>
       )}
 
-      <div className="flex flex-1 flex-col p-8">
+      <div className="flex flex-1 flex-col p-6 lg:p-8">
         <p className="flex items-center gap-2 label text-brand-600">
           {category}
           <span aria-hidden="true" className="text-ink-faint">
@@ -305,10 +305,10 @@ export function ArticleIndexCard({
           <span className="text-ink-faint">{readingTime}</span>
         </p>
 
-        <h2 className="mt-5 flex-1 text-h3 font-semibold balance">{title}</h2>
+        <h2 className="mt-3 flex-1 text-h3 font-semibold balance lg:mt-5">{title}</h2>
 
         {/* The whole card is this link; `actions` sit beside it, above the overlay. */}
-        <div className="mt-8 flex min-h-10 items-center justify-between gap-4">
+        <div className="mt-4 flex min-h-10 items-center justify-between gap-4 lg:mt-8">
           <Link
             href={href}
             className="inline-flex items-center gap-2 text-[0.9375rem] font-medium text-brand-600 after:absolute after:inset-0"
