@@ -43,7 +43,7 @@ export default function Home() {
       {/* 01.5 — Social proof strip: white, same as Hero's base, so credibility
           lands before the first grey content block rather than competing
           with it. */}
-      <Section className="!py-10 sm:!py-14">
+      <Section className="!pt-6 !pb-10 sm:!pb-14 lg:!pt-14">
         <Container>
           <Reveal>
             <p className="text-center text-sm font-medium text-ink-faint">
@@ -136,14 +136,14 @@ export default function Home() {
 
           <RevealGroup
             as="ol"
-            className="mt-12 grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-4"
+            className="mt-8 grid gap-x-10 gap-y-6 sm:grid-cols-2 lg:mt-12 lg:grid-cols-4 lg:gap-y-10"
           >
             {ROI_STEPS.map((step) => (
-              <RevealItem as="li" key={step.id} className="border-t border-line pt-6">
+              <RevealItem as="li" key={step.id} className="border-t border-line pt-4 lg:pt-6">
                 <span className="text-sm font-semibold tabular-nums text-brand-500">
                   {step.id}
                 </span>
-                <h3 className="mt-3 text-xl font-semibold tracking-tight balance">
+                <h3 className="mt-1.5 text-xl font-semibold tracking-tight balance lg:mt-3">
                   {step.title}
                 </h3>
               </RevealItem>
