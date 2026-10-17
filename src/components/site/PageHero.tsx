@@ -27,7 +27,7 @@ export function PageHero({
   const accent = gradientFrom === undefined ? [] : lines.slice(gradientFrom);
 
   return (
-    <section className="relative overflow-hidden pt-36 pb-20 sm:pt-44 sm:pb-28 lg:pt-52 lg:pb-32">
+    <section className="relative overflow-hidden pt-36 pb-8 sm:pt-44 sm:pb-12 lg:pt-52 lg:pb-32">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10 bg-brand-aura"
